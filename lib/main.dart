@@ -11,7 +11,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -39,56 +38,11 @@ class _MyAppState extends State<MyApp> {
           darkTheme: ThemeData(colorScheme: darkDynamic, useMaterial3: true),
           debugShowCheckedModeBanner: false,
           routes: {
-            '/login': (_) => loginScreen(),
             '/home': (_) => HomeAppPage(),
-            '/gen': (_)=>QrGen(),
+            '/gen': (_) => QrGen(),
           },
-          initialRoute: '/login',
+          initialRoute: '/home',
         );
-      },
-    );
-  }
-}
-
-class loginScreen extends StatefulWidget {
-  const loginScreen({super.key});
-
-  @override
-  State<loginScreen> createState() => _loginScreenState();
-}
-
-class _loginScreenState extends State<loginScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        // if (!snapshot.hasData) {
-        // ignore: dead_code
-        if (false) {
-          return SignInScreen(
-            providerConfigs: [
-              EmailProviderConfiguration(),
-            ],
-            desktopLayoutDirection: TextDirection.ltr,
-            oauthButtonVariant: OAuthButtonVariant.icon_and_text,
-            showAuthActionSwitch: true,
-            footerBuilder: (context, action) {
-              return Row(
-                children: [
-                  Text("If you encounter any issues, please"),
-                  TextButton(
-                      onPressed: () {
-                        launchUrlString("https://t.me/n30chat",
-                            mode: LaunchMode.externalApplication);
-                      },
-                      child: Text("contact us")),
-                ],
-              );
-            },
-          );
-        }
-        return HomeAppPage();
       },
     );
   }
