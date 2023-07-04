@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_app/utils/drawer.dart';
 import 'dart:io';
 
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -81,7 +80,7 @@ class _HomeAppPageState extends State<HomeAppPage> {
                         Text("Source code:"),
                         TextButton(
                             onPressed: () => launchUrlString(
-                                "https://github.com/sk-geek/QR-code-scanner-with-flutter",
+                                "https://github.com/sk-geek/QR-scanner-improved",
                                 mode: LaunchMode.externalApplication),
                             child: Text(
                               "GitHub link",

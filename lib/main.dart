@@ -6,16 +6,12 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:my_app/pages/Home_App_Page.dart';
 import 'package:my_app/utils/qr_gen.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'firebase_options.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(const MyApp());
 }
 

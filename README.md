@@ -1,4 +1,4 @@
-# rat
+# QR scanner improved
 
 A new Flutter project.
 
